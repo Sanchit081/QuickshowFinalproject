@@ -1,0 +1,526 @@
+/* Apple-Inspired Luxury Theme for QuickShow */
+
+/* Premium Color Palette - Apple Edition */
+:root {
+  /* Premium Red + White Theme */
+  --qs-red: #E50914; /* Netflix-inspired, slightly softened via usage */
+  --qs-red-hover: #cc0812;
+
+  /* Surfaces */
+  --color-primary: #ffffff;        /* app background */
+  --color-secondary: #f8fafc;      /* section background */
+  --color-tertiary: #f1f5f9;       /* subtle panels */
+  --color-quaternary: #ffffff;     /* cards */
+  --color-quinary: #e2e8f0;        /* borders */
+  
+  /* Neutral Grays */
+  --gray-50: #F9F9F9;
+  --gray-100: #F5F5F7;
+  --gray-200: #E5E5E7;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  
+  /* Pure White */
+  --white: #FFFFFF;
+  --white-90: rgba(255, 255, 255, 0.9);
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-70: rgba(255, 255, 255, 0.7);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-05: rgba(255, 255, 255, 0.05);
+  
+  /* Text Colors */
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15, 23, 42, 0.72);
+  --text-muted: rgba(15, 23, 42, 0.55);
+  --text-subtle: rgba(15, 23, 42, 0.45);
+  --text-inverted: #ffffff;
+  
+  /* Subtle Accents */
+  --accent-subtle: rgba(226, 232, 240, 0.7);
+  --border-subtle: rgba(148, 163, 184, 0.35);
+  --shadow-subtle: rgba(2, 6, 23, 0.06);
+  --shadow-medium: rgba(2, 6, 23, 0.10);
+  --shadow-strong: rgba(2, 6, 23, 0.16);
+  
+  /* Glass Effects - Light */
+  --glass-black: rgba(255, 255, 255, 0.92);
+  --glass-dark: rgba(255, 255, 255, 0.82);
+  --glass-medium: rgba(255, 255, 255, 0.70);
+  --glass-light: rgba(255, 255, 255, 0.55);
+  --glass-subtle: rgba(255, 255, 255, 0.40);
+  
+  /* Premium Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0.12), 0 1px 2px rgba(0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0.1), 0 2px 4px rgba(0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0.1), 0 4px 6px rgba(0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0.1), 0 10px 10px rgba(0, 0, 0.04);
+  
+  /* Borders - Hairline */
+  --border-hairline: 1px solid rgba(255, 255, 255, 0.1);
+  --border-thin: 1px solid rgba(255, 255, 255, 0.15);
+  --border-medium: 1px solid rgba(255, 255, 255, 0.2);
+  
+  /* Spacing System */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  
+  /* Border Radius */
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+  
+  /* Transitions - Ultra Smooth */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--color-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Premium Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+h1 { 
+  font-size: 2.5rem; 
+  font-weight: 700;
+}
+
+h2 { 
+  font-size: 2rem; 
+  font-weight: 600;
+}
+
+h3 { 
+  font-size: 1.75rem; 
+  font-weight: 600;
+}
+
+h4 { 
+  font-size: 1.5rem; 
+  font-weight: 600;
+}
+
+h5 { 
+  font-size: 1.25rem; 
+  font-weight: 500;
+}
+
+h6 { 
+  font-size: 1.125rem; 
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Apple-Style Cards */
+.apple-card {
+  background: var(--glass-black);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 10px 30px var(--shadow-subtle);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.apple-card:hover {
+  background: var(--glass-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px var(--shadow-medium);
+}
+
+.apple-card-glass {
+  background: var(--glass-medium);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 10px 30px var(--shadow-subtle);
+  transition: all var(--transition-normal);
+}
+
+.apple-card-glass:hover {
+  background: var(--glass-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Apple-Style Buttons */
+.apple-button {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-6);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.apple-button:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px var(--shadow-subtle);
+}
+
+.apple-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.apple-button-primary {
+  background: var(--qs-red);
+  color: var(--text-inverted);
+  border: 1px solid rgba(229, 9, 20, 0.25);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.18);
+}
+
+.apple-button-primary:hover {
+  background: var(--qs-red-hover);
+  box-shadow: 0 14px 40px rgba(229, 9, 20, 0.22);
+}
+
+/* Apple-Style Inputs */
+.apple-input {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+  outline: none;
+  width: 100%;
+}
+
+.apple-input:focus {
+  background: #ffffff;
+  border-color: rgba(229, 9, 20, 0.35);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.12);
+}
+
+.apple-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Apple-Style Navigation */
+.apple-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Apple-Style Movie Cards */
+.movie-card {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 50px var(--shadow-medium);
+}
+
+.movie-card-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.movie-card:hover .movie-card-poster {
+  transform: scale(1.05);
+}
+
+.movie-card-content {
+  padding: var(--space-4);
+  background: #ffffff;
+}
+
+/* Apple-Style Seat Selection */
+.seat-grid {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  background: #ffffff;
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.seat {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  border: var(--border-hairline);
+  background: #f1f5f9;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.seat:hover {
+  background: var(--gray-600);
+  transform: scale(1.1);
+}
+
+.seat-available {
+  background: var(--gray-700);
+}
+
+.seat-available:hover {
+  background: var(--gray-600);
+}
+
+.seat-selected {
+  background: var(--qs-red);
+  color: #ffffff;
+  border-color: rgba(229, 9, 20, 0.35);
+}
+
+.seat-booked {
+  background: #e2e8f0;
+  color: rgba(15, 23, 42, 0.45);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.seat-vip {
+  background: var(--glass-light);
+  border-color: var(--white-20);
+}
+
+.seat-vip:hover {
+  background: var(--white-10);
+}
+
+/* Apple-Style Loading */
+.loading-apple {
+  background: linear-gradient(
+    90deg,
+    var(--glass-subtle) 25%,
+    var(--glass-light) 50%,
+    var(--glass-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: apple-shimmer 1.5s infinite;
+}
+
+@keyframes apple-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Apple-Style Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-600);
+  border-radius: 4px;
+  border: 2px solid var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+/* Apple-Style Selection */
+::selection {
+  background: var(--white-20);
+  color: var(--text-primary);
+}
+
+/* Apple-Style Focus States */
+.apple-button:focus,
+.apple-input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--white-30);
+}
+
+/* Ultra-Subtle Animations */
+@keyframes fade-in-apple {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slide-up-apple {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes scale-in-apple {
+  from { 
+    opacity: 0; 
+    transform: scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+.animate-fade-apple {
+  animation: fade-in-apple 0.3s ease-out;
+}
+
+.animate-slide-apple {
+  animation: slide-up-apple 0.4s ease-out;
+}
+
+.animate-scale-apple {
+  animation: scale-in-apple 0.2s ease-out;
+}
+
+/* Utility Classes */
+.text-apple-primary { color: var(--text-primary); }
+.text-apple-secondary { color: var(--text-secondary); }
+.text-apple-muted { color: var(--text-muted); }
+.text-apple-subtle { color: var(--text-subtle); }
+
+.bg-apple-black { background: var(--color-primary); }
+.bg-apple-dark { background: var(--color-secondary); }
+.bg-apple-medium { background: var(--color-tertiary); }
+.bg-apple-light { background: #ffffff; }
+
+.border-apple-hairline { border: var(--border-hairline); }
+.border-apple-thin { border: var(--border-thin); }
+.border-apple-medium { border: var(--border-medium); }
+
+.shadow-apple-sm { box-shadow: var(--shadow-sm); }
+.shadow-apple-md { box-shadow: var(--shadow-md); }
+.shadow-apple-lg { box-shadow: var(--shadow-lg); }
+
+.glass-apple-subtle { background: var(--glass-subtle); }
+.glass-apple-light { background: var(--glass-light); }
+.glass-apple-medium { background: var(--glass-medium); }
+.glass-apple-dark { background: var(--glass-dark); }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .apple-card {
+    border-radius: var(--radius-lg);
+  }
+  
+  .apple-button {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.8125rem;
+  }
+}
+
+/* Premium Z-index Layers */
+.z-apple-1 { z-index: 10; }
+.z-apple-2 { z-index: 20; }
+.z-apple-3 { z-index: 30; }
+.z-apple-4 { z-index: 40; }
+.z-apple-5 { z-index: 50; }
+
+/* Special Effects */
+.backdrop-blur-apple {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subtle-glow {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
