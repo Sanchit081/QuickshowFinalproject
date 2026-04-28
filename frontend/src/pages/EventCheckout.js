@@ -145,13 +145,13 @@ const EventCheckout = () => {
             </div>
             <div>
               <h1 className="text-2xl font-bold mb-1">{event.title}</h1>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 capitalize">
+              <p className="text-sm text-gray-600 mb-2 capitalize">
                 {event.category}
               </p>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+              <p className="text-sm text-gray-700 mb-1">
                 {new Date(event.date).toLocaleDateString()} • {event.time}
               </p>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-gray-700">
                 {event.venue?.name}, {event.venue?.city}
               </p>
             </div>
@@ -159,7 +159,7 @@ const EventCheckout = () => {
 
           <div className="card">
             <h2 className="text-xl font-bold mb-4">Your Selection</h2>
-            <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <div className="space-y-2 text-sm text-gray-700">
               <div className="flex justify-between">
                 <span>Area</span>
                 <span className="capitalize">{pricing.safeArea}</span>
@@ -183,7 +183,7 @@ const EventCheckout = () => {
         {/* Right: Price Summary */}
         <div className="card h-max">
           <h2 className="text-xl font-bold mb-4">Payment Summary</h2>
-          <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300 mb-4">
+          <div className="space-y-2 text-sm text-gray-700 mb-4">
             <div className="flex justify-between">
               <span>Tickets ({pricing.qty}×)</span>
               <span>₹{pricing.baseAmount}</span>
@@ -219,7 +219,7 @@ const EventCheckout = () => {
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="mt-2 w-full text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+            className="mt-2 w-full text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-800"
           >
             Back to event
           </button>

@@ -129,10 +129,10 @@ const GeminiChat = () => {
         onClick={() => setIsOpen(true)}
         className="fixed bottom-8 right-8 w-16 h-16 rounded-full glass-card flex items-center justify-center z-[60] neon-glow group"
       >
-        <FaRobot className="text-2xl text-white" />
+        <FaRobot className="text-2xl text-gray-800" />
         <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse" />
         <div className="absolute -bottom-8 right-0 opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="text-xs text-white whitespace-nowrap glass-card px-2 py-1 rounded">
+          <span className="text-xs text-gray-800 whitespace-nowrap glass-card px-2 py-1 rounded">
             Ask AI
           </span>
         </div>
@@ -148,7 +148,7 @@ const GeminiChat = () => {
       className="fixed bottom-8 right-8 w-96 h-[600px] glass-card rounded-2xl shadow-2xl z-[60] flex flex-col"
     >
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-t-2xl flex items-center justify-between">
+      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-gray-800 p-4 rounded-t-2xl flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <FaRobot className="text-xl" />
           <div>
@@ -158,7 +158,7 @@ const GeminiChat = () => {
         </div>
         <button
           onClick={() => setIsOpen(false)}
-          className="text-white hover:bg-white/20 p-1 rounded transition-colors"
+          className="text-gray-800 hover:bg-white/20 p-1 rounded transition-colors"
         >
           <FaTimes />
         </button>
@@ -178,8 +178,8 @@ const GeminiChat = () => {
               <div
                 className={`max-w-[80%] p-3 rounded-2xl ${
                   message.type === 'user'
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
-                    : 'glass-card text-white'
+                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-gray-800'
+                    : 'glass-card text-gray-800'
                 }`}
               >
                 <p className="text-sm leading-relaxed">{message.text}</p>
@@ -255,7 +255,7 @@ const GeminiChat = () => {
               <button
                 key={index}
                 onClick={() => handleQuickAction(action)}
-                className="flex items-center space-x-2 text-xs glass-card hover:bg-white/20 text-white p-2 rounded-lg transition-colors"
+                className="flex items-center space-x-2 text-xs glass-card hover:bg-white/20 text-gray-800 p-2 rounded-lg transition-colors"
               >
                 <action.icon className="text-sm" />
                 <span>{action.text}</span>
@@ -274,13 +274,13 @@ const GeminiChat = () => {
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask me anything about movies..."
-            className="flex-1 px-4 py-2 glass-card rounded-full text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="flex-1 px-4 py-2 glass-card rounded-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
             disabled={isTyping}
           />
           <button
             onClick={() => sendMessage(inputMessage)}
             disabled={isTyping || !inputMessage.trim()}
-            className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-105"
+            className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-gray-800 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-105"
           >
             <FaPaperPlane className="text-sm" />
           </button>

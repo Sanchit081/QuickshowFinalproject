@@ -376,7 +376,7 @@ const Checkout = () => {
               <h2 className="text-2xl font-bold mb-4">Booking Details</h2>
               <div className="space-y-4">
               <div>
-                <p className="text-gray-600 dark:text-gray-400">Movie</p>
+                <p className="text-gray-600">Movie</p>
                 <p className="font-semibold text-lg">{show.movieId?.title}</p>
               </div>
               {!!show.movieId?.poster && (
@@ -388,20 +388,20 @@ const Checkout = () => {
                 />
               )}
               <div>
-                <p className="text-gray-600 dark:text-gray-400">Cinema</p>
+                <p className="text-gray-600">Cinema</p>
                 <p className="font-semibold">{show.cinemaId?.name}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-gray-600">
                   {show.cinemaId?.address}
                 </p>
               </div>
               <div>
-                <p className="text-gray-600 dark:text-gray-400">Date & Time</p>
+                <p className="text-gray-600">Date & Time</p>
                 <p className="font-semibold">
                   {new Date(show.date).toLocaleDateString()} • {show.time}
                 </p>
               </div>
               <div>
-                <p className="text-gray-600 dark:text-gray-400">Seats</p>
+                <p className="text-gray-600">Seats</p>
                 <p className="font-semibold">
                   {normalizedSeats.map((seat) => `${seat.row}${seat.number}`).join(', ')}
                 </p>
@@ -415,12 +415,12 @@ const Checkout = () => {
                 <button
                   type="button"
                   onClick={handleSkipMeals}
-                  className="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 underline"
+                  className="text-sm text-gray-500 hover:text-gray-700 underline"
                 >
                   Skip
                 </button>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <p className="text-sm text-gray-600 mb-4">
                 Choose from our combos and snacks. All orders include <span className="font-semibold">on-seat delivery</span>
                 {' '}if you add the delivery service.
               </p>
@@ -428,11 +428,11 @@ const Checkout = () => {
                 {MEAL_ITEMS.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-between rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2"
+                    className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2"
                   >
                     <div>
                       <p className="font-semibold text-sm md:text-base">{item.name}</p>
-                      <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                      <p className="text-xs md:text-sm text-gray-500">
                         {item.description}
                       </p>
                       <p className="text-sm font-semibold mt-1">₹{item.price}</p>
@@ -441,7 +441,7 @@ const Checkout = () => {
                       <button
                         type="button"
                         onClick={() => updateMealQuantity(item.id, -1)}
-                        className="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-lg"
+                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-lg"
                       >
                         −
                       </button>
@@ -451,7 +451,7 @@ const Checkout = () => {
                       <button
                         type="button"
                         onClick={() => updateMealQuantity(item.id, 1)}
-                        className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center text-lg"
+                        className="w-8 h-8 rounded-full bg-red-600 text-gray-800 flex items-center justify-center text-lg"
                       >
                         +
                       </button>
@@ -460,7 +460,7 @@ const Checkout = () => {
                 ))}
               </div>
               {mealSummary.items.length > 0 && (
-                <div className="mt-4 border-t pt-3 text-sm text-gray-700 dark:text-gray-300">
+                <div className="mt-4 border-t pt-3 text-sm text-gray-700">
                   <p className="font-semibold mb-1">Selected Items:</p>
                   <ul className="space-y-1">
                     {mealSummary.items.map((item) => (
@@ -501,7 +501,7 @@ const Checkout = () => {
                   Apply Coupon
                 </button>
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500">
                 Sample coupon: <span className="font-semibold">NEWBIE100</span>
                 {' '} (100% off for new users on this booking).
               </p>

@@ -100,7 +100,7 @@ const AIChatbot = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center z-[60] hover:bg-blue-700 transition-colors"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-blue-600 text-gray-800 rounded-full shadow-lg flex items-center justify-center z-[60] hover:bg-blue-700 transition-colors"
       >
         <FaRobot className="text-xl" />
       </motion.button>
@@ -115,7 +115,7 @@ const AIChatbot = () => {
       className="fixed bottom-6 right-6 w-96 h-[500px] bg-white dark:bg-gray-800 rounded-lg shadow-2xl z-[60] flex flex-col"
     >
       {/* Header */}
-      <div className="bg-blue-600 text-white p-4 rounded-t-lg flex items-center justify-between">
+      <div className="bg-blue-600 text-gray-800 p-4 rounded-t-lg flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <FaRobot className="text-xl" />
           <div>
@@ -125,7 +125,7 @@ const AIChatbot = () => {
         </div>
         <button
           onClick={() => setIsOpen(false)}
-          className="text-white hover:bg-blue-700 p-1 rounded transition-colors"
+          className="text-gray-800 hover:bg-blue-700 p-1 rounded transition-colors"
         >
           <FaTimes />
         </button>
@@ -145,8 +145,8 @@ const AIChatbot = () => {
               <div
                 className={`max-w-[80%] p-3 rounded-lg ${
                   message.type === 'user'
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white'
+                    ? 'bg-blue-600 text-gray-800'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-800'
                 }`}
               >
                 <p className="text-sm">{message.text}</p>
@@ -207,13 +207,13 @@ const AIChatbot = () => {
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Type your message..."
-            className="flex-1 px-3 py-2 border dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            className="flex-1 px-3 py-2 border dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-800"
             disabled={isTyping}
           />
           <button
             onClick={sendMessage}
             disabled={isTyping || !inputMessage.trim()}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-4 py-2 bg-blue-600 text-gray-800 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <FaPaperPlane />
           </button>

@@ -7,21 +7,27 @@ const PremiumHeroSection = ({ movies = [] }) => {
   const [currentMovie, setCurrentMovie] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // Filter movies to show only Avengers and Spiderman
+  const heroMovies = movies.filter(movie => {
+    const title = movie?.title?.toLowerCase() || '';
+    return title.includes('avenger') || title.includes('spiderman') || title.includes('spider-man');
+  });
+
   useEffect(() => {
-    if (movies.length > 0) {
+    if (heroMovies.length > 0) {
       setIsLoaded(true);
     }
-  }, [movies]);
+  }, [heroMovies]);
 
   useEffect(() => {
-    if (!movies.length) return;
+    if (!heroMovies.length) return;
 
     const interval = setInterval(() => {
-      setCurrentMovie((prev) => (prev + 1) % movies.length);
+      setCurrentMovie((prev) => (prev + 1) % heroMovies.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [movies]);
+  }, [heroMovies]);
 
   const handleDotClick = (index) => {
     setCurrentMovie(index);
@@ -29,7 +35,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
 
   // Fallback image if movie poster/banner is not available
   const getMovieImage = () => {
-    const currentMovieData = movies[currentMovie];
+    const currentMovieData = heroMovies[currentMovie];
     if (currentMovieData?.banner) return currentMovieData.banner;
     if (currentMovieData?.poster) return currentMovieData.poster;
     // Add a fallback image URL or return null
@@ -38,7 +44,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
 
   const movieImage = getMovieImage();
 
-  if (!isLoaded || movies.length === 0) {
+  if (!isLoaded || heroMovies.length === 0) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
@@ -111,7 +117,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
               >
                 <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-gray-900">
-                  {movies[currentMovie]?.category || 'Featured Movie'}
+                  {heroMovies[currentMovie]?.category || 'Featured Movie'}
                 </span>
               </motion.div>
 
@@ -122,7 +128,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
                 transition={{ delay: 0.7 }}
                 className="text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight tracking-tight"
               >
-                {movies[currentMovie]?.title}
+                {heroMovies[currentMovie]?.title}
               </motion.h1>
 
               {/* Description */}
@@ -132,7 +138,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
                 transition={{ delay: 0.8 }}
                 className="text-xl lg:text-2xl text-gray-300 leading-relaxed line-clamp-3"
               >
-                {movies[currentMovie]?.description}
+                {heroMovies[currentMovie]?.description}
               </motion.p>
 
               {/* Movie Info */}
@@ -144,15 +150,15 @@ const PremiumHeroSection = ({ movies = [] }) => {
               >
                 <div className="flex items-center space-x-2">
                   <FaStar className="text-orange-500 text-lg" />
-                  <span className="font-semibold text-lg">{movies[currentMovie]?.rating || '8.5'}</span>
+                  <span className="font-semibold text-lg">{heroMovies[currentMovie]?.rating || '8.5'}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <FaClock className="text-blue-400 text-lg" />
-                  <span className="text-lg">{movies[currentMovie]?.duration || '2h 30m'}</span>
+                  <span className="text-lg">{heroMovies[currentMovie]?.duration || '2h 30m'}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <FaCalendar className="text-purple-400 text-lg" />
-                  <span className="text-lg">{movies[currentMovie]?.releaseDate || new Date().getFullYear()}</span>
+                  <span className="text-lg">{heroMovies[currentMovie]?.releaseDate || new Date().getFullYear()}</span>
                 </div>
               </motion.div>
 
@@ -164,7 +170,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
                 className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6"
               >
                 <Link
-                  to={`/movies/${movies[currentMovie]?._id}`}
+                  to={`/movies/${heroMovies[currentMovie]?._id}`}
                   className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 flex items-center space-x-3"
                 >
                   <FaPlay className="text-sm" />
@@ -172,7 +178,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
                   <FaChevronRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
                 <Link
-                  to={`/movies/${movies[currentMovie]?._id}`}
+                  to={`/movies/${heroMovies[currentMovie]?._id}`}
                   className="px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-xl font-semibold hover:bg-white/30 transition-all duration-300 flex items-center space-x-3"
                 >
                   <FaInfo className="text-sm" />
@@ -195,8 +201,8 @@ const PremiumHeroSection = ({ movies = [] }) => {
               >
                 <div className="relative group">
                   <img
-                    src={movies[currentMovie]?.poster}
-                    alt={movies[currentMovie]?.title}
+                    src={heroMovies[currentMovie]?.poster}
+                    alt={heroMovies[currentMovie]?.title}
                     className="w-72 h-96 lg:w-80 lg:h-[480px] xl:w-96 xl:h-[560px] object-cover rounded-2xl shadow-2xl"
                   />
                   
@@ -206,7 +212,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
                       <div className="flex items-center justify-between">
                         <div className="text-white">
                           <p className="text-sm opacity-75">Now Showing</p>
-                          <p className="text-lg font-semibold">{movies[currentMovie]?.title}</p>
+                          <p className="text-lg font-semibold">{heroMovies[currentMovie]?.title}</p>
                         </div>
                         <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
                           <FaPlay className="text-white ml-1" />
@@ -227,7 +233,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
                   className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl"
                 >
                   <div className="text-center text-white">
-                    <div className="text-2xl font-bold">{movies[currentMovie]?.rating || '8.5'}</div>
+                    <div className="text-2xl font-bold">{heroMovies[currentMovie]?.rating || '8.5'}</div>
                     <div className="text-xs opacity-75">IMDb</div>
                   </div>
                 </motion.div>
@@ -239,7 +245,7 @@ const PremiumHeroSection = ({ movies = [] }) => {
 
       {/* Navigation Dots */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-        {movies.map((_, index) => (
+        {heroMovies.map((_, index) => (
           <motion.button
             key={index}
             onClick={() => handleDotClick(index)}

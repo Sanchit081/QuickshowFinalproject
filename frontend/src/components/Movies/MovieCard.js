@@ -89,13 +89,13 @@ const MovieCard = ({ movie }) => {
           <button
             onClick={handleWishlist}
             className={`absolute top-2 right-2 p-2 rounded-full glass ${
-              localInWishlist ? 'text-red-500' : 'text-white'
+              localInWishlist ? 'text-red-500' : 'text-gray-800'
             } transition-colors`}
           >
             <FiHeart fill={localInWishlist ? 'currentColor' : 'none'} />
           </button>
           {movie.isComingSoon && (
-            <div className="absolute top-2 left-2 px-3 py-1 bg-purple-600 text-white rounded-full text-sm font-semibold">
+            <div className="absolute top-2 left-2 px-3 py-1 bg-purple-600 text-gray-800 rounded-full text-sm font-semibold">
               Coming Soon
             </div>
           )}

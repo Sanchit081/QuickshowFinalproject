@@ -69,7 +69,7 @@ const Top10Row = () => {
       >
         {/* Rank Number - Big and Bold */}
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-          <div className="text-6xl font-black text-white/20 select-none">
+          <div className="text-6xl font-black text-gray-800/20 select-none">
             {movie.rank}
           </div>
         </div>
@@ -104,7 +104,7 @@ const Top10Row = () => {
                 />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">No Poster</span>
+                  <span className="text-gray-800 text-sm font-bold">No Poster</span>
                 </div>
               )}
 
@@ -115,18 +115,18 @@ const Top10Row = () => {
               <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="space-y-3">
                   {/* Title */}
-                  <h3 className="text-white text-xl font-bold line-clamp-2 drop-shadow-lg">
+                  <h3 className="text-gray-800 text-xl font-bold line-clamp-2 drop-shadow-lg">
                     {movie.title}
                   </h3>
                   
                   {/* Rating Badge */}
                   <div className="flex items-center space-x-2">
                     <div className="flex items-center space-x-1 bg-yellow-500/90 px-2 py-1 rounded-full">
-                      <FiStar className="text-white text-sm" />
-                      <span className="text-white text-sm font-bold">{movie.rating}</span>
+                      <FiStar className="text-gray-800 text-sm" />
+                      <span className="text-gray-800 text-sm font-bold">{movie.rating}</span>
                     </div>
                     <div className="bg-red-600/90 px-2 py-1 rounded-full">
-                      <span className="text-white text-xs font-bold">#{movie.rank}</span>
+                      <span className="text-gray-800 text-xs font-bold">#{movie.rank}</span>
                     </div>
                   </div>
                   
@@ -135,7 +135,7 @@ const Top10Row = () => {
                     <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center">
                       <FiPlay className="text-black ml-1" />
                     </div>
-                    <span className="text-white text-sm font-medium">Watch Now</span>
+                    <span className="text-gray-800 text-sm font-medium">Watch Now</span>
                   </div>
                 </div>
               </div>
@@ -143,7 +143,7 @@ const Top10Row = () => {
 
             {/* Rank Badge */}
             <div className="absolute top-2 left-2 w-8 h-8 bg-gradient-to-br from-red-600 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white text-sm font-black">{movie.rank}</span>
+              <span className="text-gray-800 text-sm font-black">{movie.rank}</span>
             </div>
           </motion.div>
         </Link>
@@ -161,9 +161,9 @@ const Top10Row = () => {
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-2xl">🔥</span>
+                <span className="text-gray-800 text-2xl">🔥</span>
               </div>
-              <h2 className="text-4xl font-bold text-white">Trending Today</h2>
+              <h2 className="text-4xl font-bold text-gray-800">Trending Today</h2>
             </div>
           </div>
           
@@ -186,10 +186,10 @@ const Top10Row = () => {
         <div className="container mx-auto px-6">
           <div className="text-center py-12">
             <p className="text-red-500 text-xl">Failed to load trending movies</p>
-            <p className="text-white text-sm mt-2">{error}</p>
+            <p className="text-gray-800 text-sm mt-2">{error}</p>
             <button 
               onClick={() => window.location.reload()}
-              className="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+              className="mt-4 px-6 py-2 bg-red-600 text-gray-800 rounded-lg hover:bg-red-700 transition-colors"
             >
               Retry
             </button>
@@ -221,17 +221,17 @@ const Top10Row = () => {
               transition={{ duration: 2, repeat: Infinity }}
               className="w-10 h-10 bg-gradient-to-br from-red-600 to-orange-600 rounded-full flex items-center justify-center shadow-lg"
             >
-              <span className="text-white text-lg">🔥</span>
+              <span className="text-gray-800 text-lg">🔥</span>
             </motion.div>
             <div>
-              <h2 className="text-2xl font-bold text-white">Top 10 Today</h2>
+              <h2 className="text-2xl font-bold text-gray-800">Top 10 Today</h2>
               <p className="text-gray-400 text-xs">Trending movies right now</p>
             </div>
           </div>
           
           <Link
             to="/trending"
-            className="text-white hover:text-gray-300 transition-colors text-sm"
+            className="text-gray-800 hover:text-gray-300 transition-colors text-sm"
           >
             View All →
           </Link>
@@ -245,7 +245,7 @@ const Top10Row = () => {
               <button
                 onClick={scrollLeft}
                 disabled={currentIndex === 0}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <FiChevronLeft className="text-xl" />
               </button>
@@ -253,7 +253,7 @@ const Top10Row = () => {
               <button
                 onClick={scrollRight}
                 disabled={currentIndex === movies.length - 1}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <FiChevronRight className="text-xl" />
               </button>

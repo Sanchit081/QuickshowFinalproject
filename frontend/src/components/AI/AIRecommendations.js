@@ -57,7 +57,7 @@ const AIRecommendations = ({ userId }) => {
   if (recommendations.length === 0) {
     return (
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-        <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">
+        <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-800">
           AI Recommendations
         </h3>
         <p className="text-gray-600 dark:text-gray-400">
@@ -70,7 +70,7 @@ const AIRecommendations = ({ userId }) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-800">
           🤖 AI Recommendations for You
         </h3>
         <span className="text-sm text-gray-500 dark:text-gray-400">
@@ -97,7 +97,7 @@ const AIRecommendations = ({ userId }) => {
             <div className="flex-1">
               <div className="flex items-start justify-between">
                 <div>
-                  <h4 className="font-semibold text-gray-800 dark:text-white mb-1">
+                  <h4 className="font-semibold text-gray-800 dark:text-gray-800 mb-1">
                     {movie.title}
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
@@ -141,7 +141,7 @@ const AIRecommendations = ({ userId }) => {
       
       <button
         onClick={fetchRecommendations}
-        className="mt-4 w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        className="mt-4 w-full py-2 bg-blue-600 text-gray-800 rounded-lg hover:bg-blue-700 transition-colors"
       >
         Refresh Recommendations
       </button>

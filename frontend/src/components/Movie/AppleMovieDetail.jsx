@@ -108,7 +108,7 @@ const AppleMovieDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-apple-black">
+      <div className="min-h-screen bg-white">
         <div className="container mx-auto px-6 py-10">
           <div className="shimmer h-10 w-72 rounded-xl mb-6" />
           <div className="grid lg:grid-cols-3 gap-8">
@@ -127,9 +127,9 @@ const AppleMovieDetail = () => {
 
   if (error || !movie) {
     return (
-      <div className="min-h-screen bg-apple-black flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center space-y-6 max-w-md">
-          <h2 className="text-2xl font-bold text-apple-primary">{error || 'Movie Not Found'}</h2>
+          <h2 className="text-2xl font-bold text-black">{error || 'Movie Not Found'}</h2>
           <button
             onClick={() => navigate('/movies')}
             className="apple-button apple-button-primary mt-4"
@@ -142,7 +142,7 @@ const AppleMovieDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-apple-black">
+    <div className="min-h-screen bg-white">
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
           <div
@@ -178,7 +178,7 @@ const AppleMovieDetail = () => {
               className="lg:col-span-2 space-y-6"
             >
               <div className="space-y-3">
-                <h1 className="text-4xl md:text-6xl font-bold text-apple-primary leading-tight">
+                <h1 className="text-4xl md:text-6xl font-bold text-black leading-tight">
                   {movie.title}
                 </h1>
 
@@ -193,7 +193,7 @@ const AppleMovieDetail = () => {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-4 text-sm text-apple-secondary">
+                <div className="flex flex-wrap gap-4 text-sm text-gray-700">
                   <div className="flex items-center gap-2">
                     <FaStar className="text-yellow-400" />
                     <span className="font-semibold text-gray-900">{movie.rating || '—'}</span>
@@ -229,8 +229,8 @@ const AppleMovieDetail = () => {
               </div>
 
               <div className="apple-card p-6">
-                <h2 className="text-lg font-semibold text-apple-primary mb-2">About</h2>
-                <p className="text-apple-secondary leading-relaxed">{movie.description}</p>
+                <h2 className="text-lg font-semibold text-black mb-2">About</h2>
+                <p className="text-gray-800 leading-relaxed">{movie.description}</p>
               </div>
             </motion.div>
           </div>
@@ -242,13 +242,13 @@ const AppleMovieDetail = () => {
           <div className="grid lg:grid-cols-3 gap-8 mt-8">
             <div className="lg:col-span-2 space-y-6">
               <div className="apple-card p-6">
-                <h2 className="text-lg font-semibold text-apple-primary mb-2">AI Summary</h2>
-                <p className="text-apple-secondary leading-relaxed">{aiSummary}</p>
+                <h2 className="text-lg font-semibold text-black mb-2">AI Summary</h2>
+                <p className="text-gray-800 leading-relaxed">{aiSummary}</p>
               </div>
 
               <div id="booking-section" className="apple-card p-6">
                 <div className="flex items-center justify-between gap-4 mb-4">
-                  <h2 className="text-lg font-semibold text-apple-primary">Showtimes</h2>
+                  <h2 className="text-lg font-semibold text-black">Showtimes</h2>
                   <input
                     type="date"
                     value={selectedDate}
@@ -266,8 +266,8 @@ const AppleMovieDetail = () => {
                         onClick={() => navigate(`/seat-selection/${showItem._id}`)}
                         className="apple-card-glass p-4 text-left hover:shadow-apple-md transition-all"
                       >
-                        <div className="text-sm text-apple-muted truncate">{showItem.cinemaId?.name}</div>
-                        <div className="text-xl font-bold text-apple-primary mt-1">{showItem.time}</div>
+                        <div className="text-sm text-gray-600 truncate">{showItem.cinemaId?.name}</div>
+                        <div className="text-xl font-bold text-black mt-1">{showItem.time}</div>
                         <div className="text-xs text-gray-600 mt-1">
                           {showItem.availableSeats ?? 0} seats available
                         </div>
@@ -276,12 +276,12 @@ const AppleMovieDetail = () => {
                     ))}
                   </div>
                 ) : (
-                  <div className="text-sm text-apple-secondary">
+                  <div className="text-sm text-gray-700">
                     No showtimes available for today. Try again later.
                   </div>
                 )}
                 {shows.length > displayShows.length && (
-                  <div className="text-xs text-apple-muted mt-3">
+                  <div className="text-xs text-gray-600 mt-3">
                     Showing {displayShows.length} of {shows.length} shows for a cleaner view.
                   </div>
                 )}
@@ -292,11 +292,11 @@ const AppleMovieDetail = () => {
               <div className="apple-card p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-sm text-apple-muted">Fast checkout</div>
-                    <div className="text-lg font-semibold text-apple-primary mt-1">
+                    <div className="text-sm text-gray-600">Fast checkout</div>
+                    <div className="text-lg font-semibold text-black mt-1">
                       {nextShow ? `Next show: ${nextShow.time}` : 'No shows today'}
                     </div>
-                    <div className="text-sm text-apple-secondary mt-1">
+                    <div className="text-sm text-gray-700 mt-1">
                       {nextShow?.cinemaId?.name || ''}
                     </div>
                   </div>
@@ -313,7 +313,7 @@ const AppleMovieDetail = () => {
 
               {!!relatedMovies.length && (
                 <div className="apple-card p-6">
-                  <h2 className="text-lg font-semibold text-apple-primary mb-4">Recommended</h2>
+                  <h2 className="text-lg font-semibold text-black mb-4">Recommended</h2>
                   <div className="space-y-3">
                     {relatedMovies.map((item) => (
                       <button
@@ -329,8 +329,8 @@ const AppleMovieDetail = () => {
                           loading="lazy"
                         />
                         <div className="min-w-0">
-                          <div className="font-semibold text-apple-primary truncate">{item.title}</div>
-                          <div className="text-xs text-apple-muted mt-1">
+                          <div className="font-semibold text-black truncate">{item.title}</div>
+                          <div className="text-xs text-gray-600 mt-1">
                             {normalizeGenres(item.genres).slice(0, 2).join(' • ') || '—'}
                           </div>
                         </div>

@@ -285,7 +285,7 @@ const ContactUs = () => {
                     </div>
                     <button
                       type="submit"
-                      className="px-8 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-300 font-medium flex items-center space-x-2"
+                      className="px-8 py-3 bg-purple-600 text-gray-800 rounded-lg hover:bg-purple-700 transition-colors duration-300 font-medium flex items-center space-x-2"
                     >
                       <FaPaperPlane />
                       <span>Send Message</span>

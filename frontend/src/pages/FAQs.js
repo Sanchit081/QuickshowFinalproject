@@ -229,7 +229,7 @@ const FAQs = () => {
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                     activeCategory === category.id
-                      ? `bg-${category.color}-600 text-white`
+                      ? `bg-${category.color}-600 text-gray-800`
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -373,7 +373,7 @@ const FAQs = () => {
                   Can't find the answer you're looking for? Our support team is here to help!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-300 font-medium">
+                  <button className="px-6 py-3 bg-purple-600 text-gray-800 rounded-lg hover:bg-purple-700 transition-colors duration-300 font-medium">
                     Contact Support
                   </button>
                   <button className="px-6 py-3 bg-white text-purple-600 border border-purple-600 rounded-lg hover:bg-purple-50 transition-colors duration-300 font-medium">

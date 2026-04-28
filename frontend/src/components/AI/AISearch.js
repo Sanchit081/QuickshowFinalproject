@@ -77,7 +77,7 @@ const AISearch = () => {
       {/* Example Queries */}
       {!query && !showResults && (
         <div className="mt-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Try these examples:</p>
+          <p className="text-sm text-gray-600 mb-2">Try these examples:</p>
           <div className="flex flex-wrap gap-2">
             {exampleQueries.map((example, index) => (
               <button
@@ -102,12 +102,12 @@ const AISearch = () => {
         >
           <div className="p-4">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-gray-800 dark:text-white">
+              <h3 className="font-semibold text-gray-800">
                 AI Search Results
               </h3>
               <button
                 onClick={() => setShowResults(false)}
-                className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+                className="text-gray-500 hover:text-gray-700"
               >
                 ✕
               </button>
@@ -142,17 +142,17 @@ const AISearch = () => {
                     />
                     
                     <div className="flex-1">
-                      <h4 className="font-medium text-gray-800 dark:text-white">
+                      <h4 className="font-medium text-gray-800">
                         {movie.title}
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                      <p className="text-sm text-gray-600 line-clamp-2">
                         {movie.description}
                       </p>
                       
                       <div className="flex items-center space-x-3 mt-1">
                         <div className="flex items-center space-x-1">
                           <span className="text-yellow-500 text-xs">⭐</span>
-                          <span className="text-xs text-gray-600 dark:text-gray-400">
+                          <span className="text-xs text-gray-600">
                             {movie.rating}
                           </span>
                         </div>
@@ -174,10 +174,10 @@ const AISearch = () => {
               </div>
             ) : (
               <div className="text-center py-8">
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600">
                   No movies found for "{query}"
                 </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 mt-2">
                   Try different keywords or browse our movie collection
                 </p>
               </div>

@@ -206,7 +206,7 @@ const Press = () => {
                       className="w-full h-48 object-cover"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-purple-600 text-white rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-purple-600 text-gray-800 rounded-full text-sm font-medium">
                         {release.category}
                       </span>
                     </div>

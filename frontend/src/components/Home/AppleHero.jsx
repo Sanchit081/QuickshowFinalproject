@@ -68,7 +68,7 @@ const AppleHero = ({ movies }) => {
               transition={{ duration: 1, delay: 0.5 }}
               className="space-y-6"
             >
-              <h1 className="text-5xl md:text-7xl font-bold text-apple-primary leading-tight">
+              <h1 className="text-5xl md:text-7xl font-bold text-black leading-tight">
                 {movie.title}
               </h1>
               
@@ -76,7 +76,7 @@ const AppleHero = ({ movies }) => {
               <div className="w-24 h-px bg-apple-subtle mx-auto" />
               
               {/* Minimal Description */}
-              <p className="text-lg md:text-xl text-apple-secondary max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
                 {movie.description}
               </p>
               
@@ -124,7 +124,7 @@ const AppleHero = ({ movies }) => {
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-8 z-20"
       >
-        <div className="flex flex-col items-center space-y-2 text-apple-muted">
+        <div className="flex flex-col items-center space-y-2 text-gray-600">
           <span className="text-sm font-medium">Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}

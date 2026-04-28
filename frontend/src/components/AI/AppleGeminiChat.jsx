@@ -191,7 +191,7 @@ const AppleGeminiChat = () => {
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 w-14 h-14 rounded-2xl bg-apple-primary/90 backdrop-blur-md flex items-center justify-center z-[60] shadow-apple-lg border-apple-hairline group"
       >
-        <FaRobot className="text-apple-primary text-xl" />
+        <FaRobot className="text-black text-xl" />
         <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full" />
       </motion.button>
     );
@@ -207,12 +207,12 @@ const AppleGeminiChat = () => {
       {/* Clean Header */}
       <div className="flex items-center justify-between p-4 border-b border-apple-hairline">
         <div className="flex items-center space-x-3">
-          <FaRobot className="text-apple-primary text-lg" />
-          <span className="text-apple-secondary font-medium">AI Assistant</span>
+          <FaRobot className="text-black text-lg" />
+          <span className="text-gray-700 font-medium">AI Assistant</span>
         </div>
         <button
           onClick={() => setIsOpen(false)}
-          className="text-apple-muted hover:text-apple-primary transition-colors p-1"
+          className="text-gray-600 hover:text-black transition-colors p-1"
         >
           <FaTimes className="text-lg" />
         </button>
@@ -232,8 +232,8 @@ const AppleGeminiChat = () => {
               <div
                 className={`max-w-[80%] p-3 rounded-2xl ${
                   message.type === 'user'
-                    ? 'bg-apple-primary text-apple-inverted'
-                    : 'bg-apple-dark text-apple-primary border-apple-hairline'
+                    ? 'bg-apple-primary text-gray-800'
+                    : 'bg-apple-dark text-black border-apple-hairline'
                 }`}
               >
                 <p className="text-sm leading-relaxed">{message.text}</p>
@@ -246,8 +246,8 @@ const AppleGeminiChat = () => {
                         <div className="flex items-center space-x-2">
                           <img src={movie.poster} alt={movie.title} className="w-8 h-12 rounded object-cover" />
                           <div className="flex-1">
-                            <p className="text-xs font-medium text-apple-primary">{movie.title}</p>
-                            <p className="text-xs text-apple-muted">{movie.genres?.join(', ')}</p>
+                            <p className="text-xs font-medium text-black">{movie.title}</p>
+                            <p className="text-xs text-gray-600">{movie.genres?.join(', ')}</p>
                           </div>
                         </div>
                       </div>
@@ -262,7 +262,7 @@ const AppleGeminiChat = () => {
                       <button
                         key={idx}
                         onClick={() => handleSuggestionClick(suggestion)}
-                        className="px-2 py-1 rounded-lg bg-apple-medium hover:bg-apple-light text-xs text-apple-secondary transition-colors"
+                        className="px-2 py-1 rounded-lg bg-apple-medium hover:bg-apple-light text-xs text-gray-700 transition-colors"
                       >
                         {suggestion}
                       </button>
@@ -302,13 +302,13 @@ const AppleGeminiChat = () => {
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask about movies..."
-            className="flex-1 px-3 py-2 bg-apple-medium border-apple-hairline rounded-xl text-apple-primary placeholder-apple-muted focus:outline-none focus:border-apple-thin focus:bg-apple-light transition-all"
+            className="flex-1 px-3 py-2 bg-apple-medium border-apple-hairline rounded-xl text-black placeholder-apple-muted focus:outline-none focus:border-apple-thin focus:bg-apple-light transition-all"
             disabled={isTyping}
           />
           <button
             onClick={() => sendMessage()}
             disabled={isTyping || !inputMessage.trim()}
-            className="w-10 h-10 rounded-xl bg-apple-primary text-apple-inverted flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:bg-apple-secondary"
+            className="w-10 h-10 rounded-xl bg-apple-primary text-gray-800 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:bg-apple-secondary"
           >
             <FaPaperPlane className="text-sm" />
           </button>

@@ -68,7 +68,7 @@ const Home = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Something went wrong</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Something went wrong</h2>
           <p className="text-gray-300 mb-4">{error}</p>
           <button 
             onClick={fetchHomeData}
@@ -152,21 +152,21 @@ const Home = () => {
         <div className="space-y-4">
           <Link
             to="/movies"
-            className="block w-12 h-12 rounded-full glass-card flex items-center justify-center text-white hover:scale-110 transition-transform group"
+            className="block w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-800 hover:scale-110 transition-transform group"
           >
             <FaFilm className="text-lg" />
             <div className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-              <span className="text-xs text-white glass-card px-2 py-1 rounded">Explore</span>
+              <span className="text-xs text-gray-800 glass-card px-2 py-1 rounded">Explore</span>
             </div>
           </Link>
           
           <button
             onClick={() => window.location.hash = '#ai-search'}
-            className="w-12 h-12 rounded-full glass-card flex items-center justify-center text-white hover:scale-110 transition-transform group"
+            className="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-800 hover:scale-110 transition-transform group"
           >
             <FaRobot className="text-lg" />
             <div className="absolute left-full ml-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-              <span className="text-xs text-white glass-card px-2 py-1 rounded">AI Search</span>
+              <span className="text-xs text-gray-800 glass-card px-2 py-1 rounded">AI Search</span>
             </div>
           </button>
         </div>

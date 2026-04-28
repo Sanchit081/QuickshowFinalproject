@@ -289,7 +289,7 @@ const MealSelection = () => {
                       <button
                         type="button"
                         onClick={() => updateMealQuantity(item.id, 1)}
-                        className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-lg"
+                        className="w-8 h-8 rounded-full bg-blue-600 text-gray-800 flex items-center justify-center text-lg"
                       >
                         +
                       </button>

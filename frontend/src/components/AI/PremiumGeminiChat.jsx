@@ -129,7 +129,7 @@ const PremiumGeminiChat = () => {
           className="absolute inset-0 rounded-full border-2 border-yellow-400/30"
         />
         <div className="absolute -bottom-12 right-0 opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="text-xs text-white luxury-card-gold px-3 py-2 rounded-full text-gradient-gold">
+          <span className="text-xs text-gray-800 luxury-card-gold px-3 py-2 rounded-full text-gradient-gold">
             Premium AI
           </span>
         </div>
@@ -145,7 +145,7 @@ const PremiumGeminiChat = () => {
       className="fixed bottom-12 right-12 w-[420px] h-[700px] luxury-card-gold border-luxury rounded-3xl shadow-2xl z-[60] flex flex-col glow-luxury"
     >
       {/* Premium Header */}
-      <div className="bg-gradient-to-r from-yellow-400/20 to-purple-400/20 text-white p-6 rounded-t-3xl border-b border-yellow-400/30">
+      <div className="bg-gradient-to-r from-yellow-400/20 to-purple-400/20 text-gray-800 p-6 rounded-t-3xl border-b border-yellow-400/30">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="relative">
@@ -169,7 +169,7 @@ const PremiumGeminiChat = () => {
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
+            className="text-gray-800 hover:bg-white/20 p-2 rounded-full transition-colors"
           >
             <FaTimes className="text-lg" />
           </button>
@@ -190,8 +190,8 @@ const PremiumGeminiChat = () => {
               <div
                 className={`max-w-[85%] p-4 rounded-2xl ${
                   message.type === 'user'
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white luxury-card-platinum'
-                    : 'luxury-card-gold border-luxury text-white'
+                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-gray-800 luxury-card-platinum'
+                    : 'luxury-card-gold border-luxury text-gray-800'
                 }`}
               >
                 <p className="text-sm leading-relaxed">{message.text}</p>
@@ -284,7 +284,7 @@ const PremiumGeminiChat = () => {
                     ? 'luxury-card-gold border-luxury text-gradient-gold'
                     : action.variant === 'platinum'
                     ? 'luxury-card-platinum border-platinum text-gradient-platinum'
-                    : 'luxury-card text-white hover:bg-white/20'
+                    : 'luxury-card text-gray-800 hover:bg-white/20'
                 }`}
               >
                 <action.icon className="text-sm" />
@@ -304,13 +304,13 @@ const PremiumGeminiChat = () => {
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask your premium AI concierge..."
-            className="flex-1 px-4 py-3 luxury-card-gold border-luxury rounded-full text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 text-sm"
+            className="flex-1 px-4 py-3 luxury-card-gold border-luxury rounded-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 text-sm"
             disabled={isTyping}
           />
           <button
             onClick={() => sendMessage()}
             disabled={isTyping || !inputMessage.trim()}
-            className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-110 glow-luxury"
+            className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-800 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-110 glow-luxury"
           >
             <FaPaperPlane className="text-sm" />
           </button>

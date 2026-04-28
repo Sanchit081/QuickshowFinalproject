@@ -18,8 +18,8 @@ const AppleMovieSection = ({ title, movies, icon: Icon, showAI = false }) => {
           className="flex items-center justify-between mb-12"
         >
           <div className="flex items-center space-x-4">
-            <Icon className="text-3xl text-apple-primary" />
-            <h2 className="text-3xl font-bold text-apple-primary">{title}</h2>
+            <Icon className="text-3xl text-black" />
+            <h2 className="text-3xl font-bold text-black">{title}</h2>
             {showAI && (
               <span className="px-3 py-1 rounded-full bg-red-50 text-xs font-semibold text-red-700 border border-red-100">
                 AI
@@ -28,7 +28,7 @@ const AppleMovieSection = ({ title, movies, icon: Icon, showAI = false }) => {
           </div>
           <Link
             to="/movies"
-            className="text-apple-secondary hover:text-red-700 transition-colors duration-200 font-medium"
+            className="text-gray-700 hover:text-red-700 transition-colors duration-200 font-medium"
           >
             View All
           </Link>
@@ -84,7 +84,7 @@ const AppleMovieSection = ({ title, movies, icon: Icon, showAI = false }) => {
                 
                 {/* Content */}
                 <div className="movie-card-content">
-                  <h3 className="font-semibold text-apple-primary line-clamp-1 mb-2 group-hover:text-red-700 transition-colors duration-200">
+                  <h3 className="font-semibold text-black line-clamp-1 mb-2 group-hover:text-red-700 transition-colors duration-200">
                     {movie.title}
                   </h3>
                   
@@ -101,13 +101,13 @@ const AppleMovieSection = ({ title, movies, icon: Icon, showAI = false }) => {
                   </div>
                   
                   {/* Meta Info */}
-                  <div className="flex items-center space-x-4 text-xs text-apple-muted mb-4">
+                  <div className="flex items-center space-x-4 text-xs text-gray-600 mb-4">
                     <div className="flex items-center space-x-1">
-                      <FaClock className="text-apple-muted" />
+                      <FaClock className="text-gray-600" />
                       <span>{movie.duration ? `${movie.duration}m` : '—'}</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <FaCalendar className="text-apple-muted" />
+                      <FaCalendar className="text-gray-600" />
                       <span>{movie.releaseDate ? new Date(movie.releaseDate).getFullYear() : '—'}</span>
                     </div>
                   </div>

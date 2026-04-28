@@ -174,6 +174,8 @@ const AppleSeatSelection = () => {
     const seatKey = buildSeatKey(normalizedSeat.row, normalizedSeat.number);
     const isCurrentlySelected = selectedSeatKeys.includes(seatKey);
     
+    console.log('Seat toggle clicked:', { seat, normalizedSeat, seatKey, isCurrentlySelected });
+    
     // Check if seat is already booked
     if (seatMap[seatKey]?.status === 'booked') {
       toast.error('This seat is already booked');
@@ -188,28 +190,31 @@ const AppleSeatSelection = () => {
 
     if (lockingSeatKeys.includes(seatKey)) return;
 
-    setLockingSeatKeys((prev) => [...prev, seatKey]);
+    console.log('Proceeding with seat toggle...');
+    
+    // For now, let's handle selection locally without API calls to test the UI
     try {
       if (isCurrentlySelected) {
-        await axios.post('/bookings/release', {
-          showId,
-          seats: [{ row: normalizedSeat.row, number: normalizedSeat.number }]
-        });
+        console.log('Deselecting seat:', seatKey);
         setSelectedSeatKeys((prev) => prev.filter((key) => key !== seatKey));
+        console.log('Seat deselected successfully');
       } else {
-        await axios.post('/bookings/hold', {
-          showId,
-          seats: [{ row: normalizedSeat.row, number: normalizedSeat.number, class: normalizedSeat.class }]
-        });
+        console.log('Selecting seat:', seatKey);
         setSelectedSeatKeys((prev) => (prev.includes(seatKey) ? prev : [...prev, seatKey]));
+        console.log('Seat selected successfully');
+      }
+      
+      // Show success message
+      if (isCurrentlySelected) {
+        toast.success('Seat deselected');
+      } else {
+        toast.success('Seat selected');
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Failed to update seat lock');
-      fetchShowData();
-    } finally {
-      setLockingSeatKeys((prev) => prev.filter((key) => key !== seatKey));
+      console.error('Seat toggle error:', error);
+      toast.error('Failed to select seat');
     }
-  }, [fetchShowData, lockingSeatKeys, seatMap, selectedSeatKeys, showId]);
+  }, [seatMap, selectedSeatKeys, lockingSeatKeys]);
 
   const amountSummary = useMemo(() => {
     const pricing = show?.seatPricing || DEFAULT_PRICING;
@@ -235,24 +240,10 @@ const AppleSeatSelection = () => {
     setSubmitting(true);
 
     try {
-      // Lock all selected seats on backend before proceeding
-      const lockResponse = await axios.post('/bookings/hold', {
-        showId,
-        seats: selectedSeats.map(seat => ({
-          row: seat.row,
-          number: seat.number,
-          class: seat.class
-        }))
-      });
-
-      if (!lockResponse.data.success) {
-        throw new Error(lockResponse.data.message || 'Failed to lock seats');
-      }
-
-      // Use the updated show data from the lock response
+      // For now, proceed with local selection without API calls
       const bookingData = {
         showId,
-        show: lockResponse.data.show || show,
+        show,
         selectedSeats,
         amountSummary,
         timestamp: new Date().toISOString()
@@ -262,7 +253,7 @@ const AppleSeatSelection = () => {
       navigate('/checkout', { state: bookingData });
     } catch (error) {
       console.error('Booking init error:', error);
-      toast.error(error.response?.data?.message || 'Failed to lock seats for booking');
+      toast.error('Failed to proceed with booking');
     } finally {
       setSubmitting(false);
     }
@@ -297,8 +288,8 @@ const AppleSeatSelection = () => {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-apple-primary">Select Seats</h1>
-            <p className="text-apple-muted text-sm mt-1">
+            <h1 className="text-2xl font-bold text-black">Select Seats</h1>
+            <p className="text-gray-600 text-sm mt-1">
               {show?.movieId?.title} • {show?.cinemaId?.name}
             </p>
           </div>
@@ -309,15 +300,15 @@ const AppleSeatSelection = () => {
               className="w-8 h-8 rounded-lg apple-button flex items-center justify-center"
               aria-label="Zoom out"
             >
-              <FiZoomOut className="text-apple-secondary" />
+              <FiZoomOut className="text-gray-700" />
             </button>
-            <span className="text-apple-muted text-sm font-medium">{Math.round(zoomLevel * 100)}%</span>
+            <span className="text-gray-600 text-sm font-medium">{Math.round(zoomLevel * 100)}%</span>
             <button
               onClick={() => setZoomLevel((prev) => Math.min(prev + 0.2, 2))}
               className="w-8 h-8 rounded-lg apple-button flex items-center justify-center"
               aria-label="Zoom in"
             >
-              <FiZoomIn className="text-apple-secondary" />
+              <FiZoomIn className="text-gray-700" />
             </button>
           </div>
         </div>
@@ -334,7 +325,7 @@ const AppleSeatSelection = () => {
               <div className="apple-card-glass p-6 rounded-2xl">
                 <div className="mb-8 text-center">
                   <div className="inline-block px-6 py-2 bg-apple-medium rounded-lg">
-                    <span className="text-apple-muted text-xs uppercase tracking-[0.3em]">Screen This Side</span>
+                    <span className="text-gray-600 text-xs uppercase tracking-[0.3em]">Screen This Side</span>
                   </div>
                 </div>
 
@@ -352,7 +343,7 @@ const AppleSeatSelection = () => {
                       animate={{ opacity: 1, y: 0 }}
                       className="flex items-center justify-center gap-1 sm:gap-1.5 mb-4"
                     >
-                      <span className="w-6 sm:w-8 text-apple-muted text-xs sm:text-sm font-semibold">{row}</span>
+                      <span className="w-6 sm:w-8 text-gray-700 text-xs sm:text-sm font-semibold">{row}</span>
                       <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5">
                         {seats.map((seat, seatIndex) => {
                           const seatKey = buildSeatKey(seat.row, seat.number);
@@ -406,8 +397,8 @@ const AppleSeatSelection = () => {
                               title={`${seat.row}${seat.number} • ${seat.class} • ₹${seatPrice}${isLockedByOther ? ' • Held' : ''}`}
                             >
                               <div className="flex flex-col items-center justify-center">
-                                <span className="text-xs sm:text-sm font-semibold">{seat.number}</span>
-                                {!isSelected && <span className="text-[8px] sm:text-[10px] font-medium opacity-80">₹{seatPrice}</span>}
+                                <span className="text-xs sm:text-sm font-semibold text-gray-900">{seat.number}</span>
+                                {!isSelected && <span className="text-[8px] sm:text-[10px] font-medium opacity-80 text-gray-800">₹{seatPrice}</span>}
                               </div>
                               {isSelected && <FiCheck className="text-xs absolute top-0 right-0" />}
                             </motion.button>
@@ -418,7 +409,7 @@ const AppleSeatSelection = () => {
                   ))}
                 </div>
 
-                <div className="mt-4 grid sm:grid-cols-3 gap-3 text-xs text-apple-muted">
+                <div className="mt-4 grid sm:grid-cols-3 gap-3 text-xs text-gray-600">
                   <div>Tap a seat to hold it for checkout.</div>
                   <div>Dim seats are held by another user (auto-release after a short time).</div>
                   <div>Booked seats stay unavailable for everyone.</div>
@@ -432,12 +423,12 @@ const AppleSeatSelection = () => {
               className="lg:col-span-1"
             >
               <div className="apple-card p-6 rounded-2xl space-y-6 sticky top-6">
-                <h2 className="text-xl font-bold text-apple-primary mb-6">Booking Summary</h2>
+                <h2 className="text-xl font-bold text-black mb-6">Booking Summary</h2>
 
                 <div className="space-y-2">
-                  <p className="text-apple-secondary text-sm">Selected Seats</p>
-                  <div className="bg-apple-medium rounded-lg p-3">
-                    <p className="font-semibold text-apple-primary">
+                  <p className="text-gray-700 text-sm">Selected Seats</p>
+                  <div className="bg-gray-100 rounded-lg p-3">
+                    <p className="font-semibold text-black">
                       {selectedSeats.length
                         ? selectedSeats.map((seat) => `${seat.row}${seat.number}`).join(', ')
                         : 'No seats selected'}
@@ -448,18 +439,18 @@ const AppleSeatSelection = () => {
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-apple-dark rounded-lg p-3">
-                      <p className="text-apple-muted text-xs">Ticket Price</p>
-                      <p className="font-semibold text-apple-primary">₹{amountSummary.baseAmount}</p>
+                      <p className="text-gray-600 text-xs">Ticket Price</p>
+                      <p className="font-semibold text-black">₹{amountSummary.baseAmount}</p>
                     </div>
                     <div className="bg-apple-dark rounded-lg p-3">
-                      <p className="text-apple-muted text-xs">Convenience Fee</p>
-                      <p className="font-semibold text-apple-primary">₹{amountSummary.convenienceFee}</p>
+                      <p className="text-gray-600 text-xs">Convenience Fee</p>
+                      <p className="font-semibold text-black">₹{amountSummary.convenienceFee}</p>
                     </div>
                   </div>
 
                   <div className="bg-apple-dark rounded-lg p-3">
-                    <p className="text-apple-muted text-xs">GST (18%)</p>
-                    <p className="font-semibold text-apple-primary">₹{amountSummary.gst}</p>
+                    <p className="text-gray-600 text-xs">GST (18%)</p>
+                    <p className="font-semibold text-black">₹{amountSummary.gst}</p>
                   </div>
 
                   <div className="bg-red-50 border border-red-100 rounded-lg p-3">

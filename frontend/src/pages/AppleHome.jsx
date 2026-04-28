@@ -4,7 +4,6 @@ import { FaFilm, FaStar, FaRobot, FaExclamationTriangle, FaPlay } from 'react-ic
 import axios from '../utils/axios';
 import PremiumHeroSection from '../components/Home/PremiumHeroSection';
 import PremiumMovieSection from '../components/Home/PremiumMovieSection';
-import GeminiTest from '../components/GeminiTest';
 import AppleGeminiChat from '../components/AI/AppleGeminiChat';
 
 const AppleHome = () => {
@@ -265,7 +264,6 @@ const AppleHome = () => {
       </div>
 
       {/* AI Chat */}
-      <GeminiTest />
       <AppleGeminiChat />
     </div>
   );

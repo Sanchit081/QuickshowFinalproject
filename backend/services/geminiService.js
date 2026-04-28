@@ -121,7 +121,10 @@ class GeminiService {
       return response.text().trim();
     } catch (error) {
       console.error('Gemini Summary Error:', error);
-      return movie.description || 'An exciting cinematic experience awaits.';
+      // Provide a fallback summary when API fails
+      const genres = movie.genres?.slice(0, 2).join(', ') || 'drama';
+      const rating = movie.rating || 'highly rated';
+      return `Experience this ${rating} ${genres} film that delivers captivating entertainment. ${movie.title} offers an unforgettable cinematic journey with compelling performances and stunning visuals that will keep you engaged from start to finish.`;
     }
   }
 

@@ -279,7 +279,7 @@ const Careers = () => {
                   
                   <button 
                     onClick={() => handleApplyNow(position)}
-                    className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-300 font-medium"
+                    className="px-6 py-3 bg-purple-600 text-gray-800 rounded-lg hover:bg-purple-700 transition-colors duration-300 font-medium"
                   >
                     Apply Now
                   </button>
@@ -385,7 +385,7 @@ const Careers = () => {
                   <button
                     onClick={handleUploadSubmit}
                     disabled={!resumeFile}
-                    className="flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    className="flex-1 px-4 py-2 bg-purple-600 text-gray-800 rounded-lg hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
                   >
                     Submit Application
                   </button>

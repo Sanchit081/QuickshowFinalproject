@@ -153,13 +153,13 @@ const Navbar = () => {
                       <span className="text-white font-bold text-lg">{effectiveUser.name?.charAt(0)}</span>
                     </div>
                     <div className="hidden md:flex flex-col">
-                      <span className="text-xl font-bold text-apple-primary">{effectiveUser.name}</span>
-                      <span className="text-xs text-apple-secondary font-medium">{effectiveUser.email}</span>
+                      <span className="text-xl font-bold text-black">{effectiveUser.name}</span>
+                      <span className="text-xs text-gray-700 font-medium">{effectiveUser.email}</span>
                     </div>
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center space-x-2 text-apple-muted hover:text-apple-primary transition-colors p-2 rounded-lg hover:bg-apple-medium"
+                    className="flex items-center space-x-2 text-gray-600 hover:text-black transition-colors p-2 rounded-lg hover:bg-apple-medium"
                   >
                     <FiLogOut />
                     <span>Logout</span>

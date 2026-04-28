@@ -183,7 +183,7 @@ const AestheticGeminiChat = () => {
               <div
                 className={`max-w-[85%] p-4 rounded-2xl ${
                   message.type === 'user'
-                    ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white textured-card'
+                    ? 'bg-gradient-to-r from-red-500 to-pink-500 text-gray-800 textured-card'
                     : 'textured-card-accent border-accent text-primary'
                 }`}
               >
@@ -294,7 +294,7 @@ const AestheticGeminiChat = () => {
           <button
             onClick={() => sendMessage()}
             disabled={isTyping || !inputMessage.trim()}
-            className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-110"
+            className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-gray-800 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-110"
           >
             <FaPaperPlane className="text-sm" />
           </button>
